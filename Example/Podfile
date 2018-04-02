@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'UriRouter_Example' do
+  pod 'UriRouter', :path => '../'
+
+  target 'UriRouter_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
