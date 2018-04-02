@@ -1,0 +1,16 @@
+PODS:
+  - UriRouter (0.1.0)
+
+DEPENDENCIES:
+  - UriRouter (from `../`)
+
+EXTERNAL SOURCES:
+  UriRouter:
+    :path: ../
+
+SPEC CHECKSUMS:
+  UriRouter: 06b3c5835b81a9eb43c3dcf250ffd8054160c1ca
+
+PODFILE CHECKSUM: 7df18fe74bd36aab200bbdfe7ea873c2be9795f4
+
+COCOAPODS: 1.4.0

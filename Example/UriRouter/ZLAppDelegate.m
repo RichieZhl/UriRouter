@@ -7,12 +7,29 @@
 //
 
 #import "ZLAppDelegate.h"
+#import <UriRouter/UriRouter.h>
 
 @implementation ZLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[UriRouter shared] registerUri:@"helloworld" withBlock:^NSString *(id properties) {
+        NSLog(@"call helloworld");
+        return @"call helloworld success";
+    }];
+    [[UriRouter shared] registerUri:@"alert" withBlock:^id(NSDictionary *properties) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:properties[@"title"] message:properties[@"message"] preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:properties[@"ok"] style:UIAlertActionStyleDefault handler:nil]];
+            [UriRouter.currentVC presentViewController:alert animated:YES completion:nil];
+        });
+        return @(YES);
+    }];
+    NSLog(@"%@", [[UriRouter shared] openUri:@"helloworld"]);
+    NSLog(@"%@", [[UriRouter shared] openUri:@"alert" withProperties:@{@"title": @"测试", @"message": @"内容", @"ok": @"确定"}]);
+    [UriRouter destory];
+    [[UriRouter shared] openUri:@"helloworld"];
     return YES;
 }
 
