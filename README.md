@@ -9,13 +9,7 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
-## Installation
-
-UriRouter is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
+## Uses
 ```SwiftObjectiveC
 [[UriRouter shared] registerUri:@"helloworld" withBlock:^NSString *(id properties) {
     NSLog(@"call helloworld");
@@ -34,6 +28,11 @@ NSLog(@"%@", [[UriRouter shared] openUri:@"alert" withProperties:@{@"title": @"æ
 [UriRouter destory];
 [[UriRouter shared] openUri:@"helloworld"];
 ```
+
+## Installation
+
+UriRouter is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'UriRouter'
