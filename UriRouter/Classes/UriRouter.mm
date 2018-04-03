@@ -83,7 +83,7 @@ NSLock *lock = [NSLock new];
     uriRouter = nil;
 }
 
-- (void)registerUri:(NSString *)uri withBlock:(id (^)(id))block {
+- (void)registerUri:(NSString *)uri withBlock:(id (^)(id properties))block {
     uriMaps.insert(std::pair<NSString *, CFTypeRef>(uri, CFBridgingRetain([block copy])));
 }
 

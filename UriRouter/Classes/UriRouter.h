@@ -16,7 +16,7 @@
 
 + (void)destory;
 
-- (void)registerUri:(NSString *)uri withBlock:(id (^)(id))block;
+- (void)registerUri:(NSString *)uri withBlock:(id (^)(id properties))block;
 
 - (id)openUri:(NSString *)uri;
 
